@@ -175,6 +175,12 @@ public static void main(String[] args){}
 ```
 Non-static field 'declared out of main' cannot be referenced from a static context.
 
+### Object class
+- public native int hashCode()
+- public boolean equals(Object obj)
+- protected native Object clone()
+- public String toString()
+
 ### Methods
 - The signature of a method is: a name +  parameter types.
 - No two method with the same signature can exist in a class, even if they have different return types.
@@ -190,6 +196,22 @@ public String fit(String otherSize){} // Method invocation is resolved based on 
   * public
   * static
   * final
+  
+````java
+public enum Planet {
+    MERCURY(0.39), VENUS(), EARTH;
+    private double distanceFromSunAU = 1.0;
+    private Planet(double distance){
+        distanceFromSunAU = distance;
+    }
+    private Planet(){
+        distanceFromSunAU = 5.0;
+    }
+    public double getDistace(){
+        return distanceFromSunAU;
+    }
+}
+````
 
 
 ### Nested classes
