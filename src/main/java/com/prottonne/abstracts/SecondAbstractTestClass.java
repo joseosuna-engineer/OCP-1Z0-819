@@ -13,11 +13,6 @@
 
 package com.prottonne.abstracts;
 
-public abstract class TestClass implements TestInterface {
-
-    public double calculateTax(double tax){
-        return tax;
-    }
-
-    public abstract void abstractFromAbstract();
+public abstract class SecondAbstractTestClass extends TestClass {
+    // nothing is mandatory here
 }

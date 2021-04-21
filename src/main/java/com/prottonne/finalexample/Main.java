@@ -11,13 +11,12 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.finalexample;
 
-public abstract class TestClass implements TestInterface {
+public class Main {
+    public static void main(String[] args) {
+        MyFinalClass myFinalClass = new MyFinalClass();
+        System.out.println(myFinalClass);
 
-    public double calculateTax(double tax){
-        return tax;
     }
-
-    public abstract void abstractFromAbstract();
 }

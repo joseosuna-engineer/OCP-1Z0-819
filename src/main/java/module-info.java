@@ -11,13 +11,6 @@
  *
  */
 
-package com.prottonne.abstracts;
-
-public abstract class TestClass implements TestInterface {
-
-    public double calculateTax(double tax){
-        return tax;
-    }
-
-    public abstract void abstractFromAbstract();
+module com.prottonne {
+    requires java.logging;
 }

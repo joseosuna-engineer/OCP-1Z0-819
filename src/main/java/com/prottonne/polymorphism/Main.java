@@ -11,13 +11,20 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.polymorphism;
 
-public abstract class TestClass implements TestInterface {
+public class Main {
+    public static void main(String[] args) {
+        ClothingPoly[] items = new ClothingPoly[2];
+        items[0] = new Tailored(10, 1);
+        items[1] = new Standard(5);
+        for (ClothingPoly item : items) {
+            System.out.println(item.getPrice());
+        }
 
-    public double calculateTax(double tax){
-        return tax;
+        ClothingPoly item = new Standard(7);
+        System.out.println(item.getPrice());
+        Standard sItem = (Standard) item;
+        System.out.println(sItem.getPrice());
     }
-
-    public abstract void abstractFromAbstract();
 }

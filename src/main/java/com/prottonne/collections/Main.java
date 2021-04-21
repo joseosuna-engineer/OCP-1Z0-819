@@ -11,13 +11,25 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.collections;
 
-public abstract class TestClass implements TestInterface {
+import java.util.*;
 
-    public double calculateTax(double tax){
-        return tax;
+public class Main {
+
+    public static void main(String[] args) {
+        List<Integer> myInts = new ArrayList<>();
+        myInts.add(null);
+
+        Set<Integer> mySetInts = new HashSet<>();
+        myInts.add(null);
+
+        for (Integer myInt : myInts){
+            System.out.println(myInt);
+        }
+
+        for (Integer mySetInt : mySetInts){
+            System.out.println(mySetInt);
+        }
     }
-
-    public abstract void abstractFromAbstract();
 }

@@ -68,7 +68,25 @@ int someInt = 10_000_000;
 ````
 
 ### String
-Uninitialized has a default value **null**
+* All uninitialized **objects** have a default value **null**
+* In operations: lower bound is inclusive to the result. The upper bound is not inclusive to the result.  
+* It's immutable: actions always produce a new String
+* For complex text manipulation cases use a class that is not immutable: **StringBuilder**
+
+### StringBuilder
+* Default capacity is 16 and it auto-expands as required
+* In operations: lower bound is inclusive to the result. The upper bound is not inclusive to the result.  
+* Same String operations:
+  * length
+  * charAt
+  * indexOf
+  * lastIndexOf
+  * substring
+* More operations:
+  * append
+  * insert
+  * delete
+  * reverse      
 
 ### double
 ````java
@@ -86,3 +104,8 @@ double someDouble = .3;
 
 double someDouble = 4.0f;
 ````
+### LocalDate, LocalTime, LocalDateTime
+* They are immutable
+
+### BigDecimal, BigInteger
+* They are immutable

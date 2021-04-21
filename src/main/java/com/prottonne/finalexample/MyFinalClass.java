@@ -11,13 +11,9 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.finalexample;
 
-public abstract class TestClass implements TestInterface {
+public final class MyFinalClass extends MyFinalMethod {
 
-    public double calculateTax(double tax){
-        return tax;
-    }
 
-    public abstract void abstractFromAbstract();
 }

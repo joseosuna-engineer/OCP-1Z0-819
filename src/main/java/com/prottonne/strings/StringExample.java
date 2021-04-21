@@ -11,13 +11,18 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.strings;
 
-public abstract class TestClass implements TestInterface {
+public class StringExample {
+    public static void main(String[] args) {
+       String immutableString = "This is immutable";
+       StringBuilder mutableString = new StringBuilder("This is mutable");
 
-    public double calculateTax(double tax){
-        return tax;
+        System.out.println(mutableString.length());
+        System.out.println(mutableString.charAt(3));
+        System.out.println(mutableString.indexOf("i"));
+        System.out.println(mutableString.lastIndexOf("i"));
+        System.out.println(mutableString.substring(4));
+
     }
-
-    public abstract void abstractFromAbstract();
 }

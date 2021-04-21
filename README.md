@@ -1,7 +1,7 @@
 # OCP-1Z0-819
 OCP Oracle Certified Professional Java SE 11 Developer practices notes.
 
-## [ASCII symbols](https://github.com/joseosuna-engineer/ASCII-symbol-names-java/blob/main/README.md)
+## [ASCII symbols and Java Statements](https://github.com/joseosuna-engineer/ASCII-symbol-and-java-statements/blob/main/README.md)
 
 ## Keywords
 ![](resources/images/keywords.PNG)
@@ -23,30 +23,40 @@ OCP Oracle Certified Professional Java SE 11 Developer practices notes.
 
 ## [Arrays](resources/docs/arrays.md)
 
+## [Collections](resources/docs/collections.md)
+
 ## Objects in memory
 - **Variables** are stored in the **Stack**.
 - **Objects** are stored in the **Heap**.
 - **Object references** are pointers and variables, they are stored in the **Stack**.
 
-## Exceptions
-### Hierarchy
-- Throwable **(checked)**
-    - Exception **(checked)** / Error **(unchecked)**
-        - RuntimeException **(unchecked)**
+## [Exceptions](resources/docs/exceptions.md)
 
-### Flow
-After an exception is handled, the execution continues after the last catch handler.
+## Logging API
+- module: requires java.logging
+- import java.util.logging.*
+- Levels from bottom to top:
+    - Severe
+    - Warning
+    - Info
+    - Config
+    - Fine
+    - Finer
+    - Finest
+
+## Assertions
+
 ````java
-try{
-    
-    }catch(Exception e){
-    System.out.println("exception is handled here");
-}
-System.out.println("execution continues here");
+assert <boolean expression>;
+assert <boolean expression> : <error text expression> ;
 ````
 
 ## [Lambdas](resources/docs/lambdas.md)
 
 ## [Streams](resources/docs/streams.md)
+
+## [IO](resources/docs/io.md)
+
+## [Threads](resources/docs/threads.md)
 
 ## [Modularity](resources/docs/modules.md)

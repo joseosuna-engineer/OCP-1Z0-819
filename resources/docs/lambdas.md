@@ -3,12 +3,50 @@ OCP Oracle Certified Professional Java SE 11 Developer practices notes.
 
 [README.md](../../README.md#lambdas)
 
+## Generics
+- It allows variables and methods to operate on objects of various types while providing compile-time type safety.
+- Conventions:
+  * T (type)
+  * V (value)
+  * K (key)  
+  * a letter o a word  
+- Generics can be used with both classes and interfaces.
+
+````java
+public class Some<T> {
+    private T value;
+    public T getValue(){
+        return value;
+    }
+    public void setValue(T value){
+        this.value = value;
+    }
+}
+
+Some<Product> some = new Some<>();
+some.setValue(new Product("Tea",1.99));
+Product product = some.getValue();
+
+````
+
 ## Lambdas
 - Lambda expressions are enabled by **functional interfaces**.
 - A **function interface**, it's an interface that has exactly one abstract method.
 - The remaining methods, if any, they are either default, static, or private.
 
 ````java
+        Collections.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+
+        Collections.sort(names, (o1, o2) -> o1.length() - o2.length());
+````
+
+````java
+@FunctionalInterface // this is optional
 public interface FuncInterface{
     double abstractMethod(int x);
 }
@@ -27,6 +65,14 @@ public class TestClass {
 | Consumer\<T\> | void accept(T t); | Consumer\<Integer\> lambda = x -> System.out.println(x); |
 | Supplier\<T\> | T get(); | Supplier\<String\> lambda = () -> "Canada"; |
 | Runnable | void run(); | Runnable lambda = () -> System.out.println("Run"); |
+
+### Bi-argument functional interfaces
+| Lambda Type     | Abstract Method | Example |
+| ----------- | ----------- |-------|
+| BiFunction\<T,U,R\> | R apply(T t,U u); | BiFunction\<Integer, Integer, Double\> lambda = (x,y) -> 2.0\*x\*y; |
+| BinaryOperator\<T\> | T apply(T t1, T t2); | BinaryOperator\<Integer\> lambda = (x,y) -> 2\*x\*y; |
+| BiPredicate\<T,U\> | boolean test(T t, U u); | BiPredicate\<Integer, Integer\> lambda = (x,y) -> x>y; |
+| BiConsumer\<T,U\> | void accept(T t, U u); | BiConsumer\<Integer, Integer\> lambda = (x,y) -> System.out.println(x+y); |
 
 ### Parentheses
 - Parentheses are only optional with a single implicit parameter.
@@ -64,10 +110,64 @@ Supplier<Double> lambda = () -> {return Math.PI;};
         
 ````
 
-### Shorthand
+### Method references
+- Reference method is **semantically identical** to the method that lambda expression is implementing.
+- Semantically identical means it has the same return type, and the same parameters type, number and order.
 ````java
-Function<String, String> lambda = x -> x.toUpperCase();
+public class TextFilter{
+    public static boolean removeA(String s){
+        return s.equals("remove A");
+    }
+    public int sortText(String s1, String s2){
+      return s1.compareTo(s2);
+    }
+}
 
-Function<String, String> lambda = String::toUpperCase;
+public class Main(){
+    public static void main(String[] args){
+        TextFilter filter = new TextFilter();
+        List<String> list = new ArrayList<>();
+        ...
+    }
+}
 ````
 
+- \<Class\>::\<staticMethod\> - reference a static method
+````java
+  list.removeIf(s -> TextFilter.removeA(s));
+
+  list.removeIf(TextFilter::removeA);
+````
+- \<object\>::\<instanceMethod\> - reference an instance method of a particular object
+````java
+  Collections.sort(list, (s1,s2) -> filter.sortText(s1,s2));
+
+  Collections.sort(list, filter::sortText);
+````  
+- \<Class\>::\<instanceMethod\> - reference an instance method of an arbitrary object of a particular type
+````java
+   Collections.sort(list, (s1,s2) -> s1.compareToIgnoreCase(s2));
+
+   Collections.sort(list, String::compareToIgnoreCase);
+````  
+- \<Class\>::new - reference a constructor
+````java
+ 
+````
+
+### Comparator interface
+````java
+Comparator<Product> sortNames = (p1,p2) -> p1.getName().compareTo(p2.getName());
+Collections.sort(menu, Comparator.nullsFirst(sortNames));
+````
+
+### Predicate interface
+- and
+- or
+- negate
+- not
+- isEqual
+````java
+Predicate<Product> foodFilter = (p) -> p instanceof Food;
+menu.removeIf(foodFilter.negate());
+````

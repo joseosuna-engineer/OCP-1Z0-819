@@ -11,13 +11,13 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.aaa;
 
-public abstract class TestClass implements TestInterface {
+public class Example {
 
-    public double calculateTax(double tax){
-        return tax;
+    public static void main(String[] args) {
+
+
     }
 
-    public abstract void abstractFromAbstract();
 }

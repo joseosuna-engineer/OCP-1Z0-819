@@ -11,13 +11,11 @@
  *
  */
 
-package com.prottonne.abstracts;
+package com.prottonne.nested;
 
-public abstract class TestClass implements TestInterface {
+public class ConcreteClass {
 
-    public double calculateTax(double tax){
-        return tax;
-    }
-
-    public abstract void abstractFromAbstract();
+ public void iHaveThis(){
+     System.out.println("I have this");
+ }
 }
