@@ -13,7 +13,7 @@ OCP Oracle Certified Professional Java SE 11 Developer practices notes.
 
 ### Initialization
 ````java
-// String[] aString 
+// String []aString 
 // String aString[]
 String[] aString = {"St1","St2","St3"};
 
@@ -42,8 +42,28 @@ Toy[] myToys = new Toy[3]; // an Array of 3 abstract Toys
                   // 1st row, 2nd row
 int[][] matrix = {{4,1},{2,0,5}}
 
-MORE EXAMPLE
+````
+````java
+int[][] matrix = {{1,2,3},{4,5,6}};
+for(int i = 0, j = 2; !(i==2 || j == -1); i++, j--){
+    int value = matrix[i][j];
+}
+````
 
+````java
+       String[][] matrix = {{"A","B","C"},{"D","E","F"}};
+
+        for(int row = 0; row< 2; row++){
+            for (int col = 0;col< 3;col++){
+                System.out.println(matrix[row][col]);
+            }
+        }
+
+        for(String[] row : matrix){
+            for(String col : row){
+                System.out.println(col);
+            }
+        }
 ````
 
 

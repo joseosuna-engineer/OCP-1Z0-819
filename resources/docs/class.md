@@ -8,8 +8,8 @@ OCP Oracle Certified Professional Java SE 11 Developer practices notes.
 - if super class has a constructor with parameters, and you extend it, you must call super(parameters)
 
 ### Class and Object Initialization
-- All code of class (static), only once per class
-- Each object instance and its parents
+1. All code of class (static), only once per class
+2. Each object instance and its parents
 
 ### Abstract classes
 - Abstract methods only inside abstract class.
@@ -99,15 +99,15 @@ public interface IService extends ISuperService {
 - a subtype interface's **default method** takes priority over a super-type interface's **default method** of that subtype.
 - two equal subtypes interface's **default method** are going to be treated as abstract.
 - A class must override default interface method only if conflicts with another default method.
-- **implements** method a() from an interface and at the same time **extends** method a() from a concrete class resolve.
+- if a class **implements** method a() from an interface, and at the same time **extends** method a() from a concrete class, the last one (contrete) resolve the interface abstraction
 - public **default** method in an interface is **public** in the implementation class
 
 ### Comparable interface
 - We need to implement **int compareTo(T other)**
 - Returns:
     - **0**: this == other
-    - **1**: this > other
-    - **-1**: this < other
+    - **positive**: this > other
+    - **negative**: this < other
 
 ````java
 public interface Comparable<T>{
@@ -176,10 +176,10 @@ public static void main(String[] args){}
 Non-static field 'declared out of main' cannot be referenced from a static context.
 
 ### Object class
-- public native int hashCode()
-- public boolean equals(Object obj)
-- protected native Object clone()
-- public String toString()
+- public native int **hashCode()**
+- public boolean **equals(Object obj)**
+- protected native Object **clone()**
+- public String **toString()**
 
 ### Methods
 - The signature of a method is: a name +  parameter types.
@@ -216,8 +216,8 @@ public enum Planet {
 
 ### Nested classes
 - class defined inside other class
-- [Static|Member][public|protected|default] - can be accessed externally
-- [Static|Member]private - can be accessed only inside their outer class
+- \[Nested-Static-Class|Nested-Member-Class\]\[public|protected|default\] - can be accessed externally
+- \[Nested-Static-Class|Nested-Member-Class\]private - can be accessed only inside their outer class
 
 #### Static
 - associated with the static context of the outer class
